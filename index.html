@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор случайных пользователей</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body id="backColor">
+    <div class="container">
+        <div class="row game-card align-items-center">
+            <div class="col col-md-6 offset-md-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <p class="m-0">Окно результатов генерации</p>
+                        <hr id="frstLine" noshade size="2" color="LightSteelBlue">
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h3><strong><i>Фамилия:</i></strong><span id="surnameOutput">Иванов</span></h3>
+                                <h4><strong><i>Имя:</i></strong><span id="firstNameOutput">Иван</span></h4>
+                                <h4><strong><i>Отчество:</i></strong><span id="patronyMic">Иванович</span></h4>
+                                <h4><strong><i>Пол:</i></strong><span id="genderOutput">Генерация пола</span></h4>
+                                <h4><strong><i>Год рождения:</i></strong><span id="birthYearOutput">Генерация года рождения</span>
+                                <h4><strong><i>Профессия:</i></strong><span id="workPerson">Генерация пола</span></h4>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="card-footer" id="wasIt">
+                            <button class="btn btn-info" type="button" onClick="clearPage()" >Очистить</button>
+                            <button class="btn btn-info" type="button" onClick="generatePage()" >Сгенерировать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="personGenerator.js"></script>
+    <script src="init.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+#backColor {
+    background-size: cover;
+    background-color: rgb(191, 231, 240);
+}
+
+#frstLine {
+    height: 15px;
+    color:blue;
+}
+
+#wasIt {
+    background-color: #DCDCDC;
+    border-width: 8px;
+    border-style: outset;
+}
+.col {
+    font: italic small-caps bold 16px/2 cursive;
+}
+
