@@ -50,27 +50,6 @@ const personGenerator = {
             "id_10": "Юлия"
         }
     }`,
-    patronymicNameFemaleJson: `{ 
-        "count": 5,
-        "list": {     
-            "id_1": "Викторовна",
-            "id_2": "Олеговна",
-            "id_3": "Витальевна",
-            "id_4": "Сергеевна",
-            "id_5": "Александровна"
-        }
-    }`,
-
-    patronymicNameMaleJson: `{ 
-        "count": 5,
-        "list": {     
-            "id_1": "Викторович",
-            "id_2": "Олегович",
-            "id_3": "Витальевич",
-            "id_4": "Сергеевич",
-            "id_5": "Александрович"
-        }
-    }`,
     workWomen: `{ 
         "count": 5,
         "list": {     
@@ -114,17 +93,46 @@ const personGenerator = {
 
     },
     randomPatronyMic: function () {
-
-
         if (this.person.gender == 'Женщина') {
-            var pName = this.randomValue(this.patronymicNameFemaleJson);
+            var pName = this.randomValue(this.firstNameMaleJson);
+            if(pName.endsWith('ий')){
+                return pName.replace('ий','иевна');
+            };
+            if(pName.endsWith('а')){
+                return pName.replace('а','ична');
+            };
+            if(pName.endsWith('ей')){
+                return pName.replace('ей','еевна');
+            };
+            if(pName.endsWith('р')){
+                return pName.replace('р','ровна');
+            };
+            if(pName.endsWith('л')){
+                return pName.replace('л','ловна');
+            };
+            if(pName.endsWith('м')){
+                return pName.replace('м','мовна');
+            };
+            if(pName.endsWith('н')){
+                return pName.replace('н','новна');
+            };
         } else {
-            var pName = this.randomValue(this.patronymicNameMaleJson);
-        }
-        return pName;
-
+            var pName = this.randomValue(this.firstNameMaleJson);
+            if(pName.endsWith('ей')){
+                return pName.replace('ей','еевич');
+            };
+            if(pName.endsWith('ий')){
+                return pName.replace('ий','иевич');
+            };
+            if(pName.endsWith('а')){
+                return pName.replace('а','ович');
+            };
+            if(pName.endsWith('л')){
+                return pName.replace('л','лович');
+            };
+        } 
+        return pName; 
     },
-
 
     randomSurname: function () {
 
@@ -137,9 +145,8 @@ const personGenerator = {
 
     },
 
-
     randomGender: function () {
-
+    
         if (Math.random() < 0.5) {
             var gender = this.GENDER_MALE;
         } else {
@@ -151,9 +158,9 @@ const personGenerator = {
         } else {
             return 'Мужчина';
         }
-
+        
     },
-
+    
     generateRandomDate: function (date1, date2) {
 
         function randomValueBetween(min, max) {
