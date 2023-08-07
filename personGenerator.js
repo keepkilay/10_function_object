@@ -92,6 +92,7 @@ const personGenerator = {
         return name;
 
     },
+
     randomPatronyMic: function () {
         if (this.person.gender == 'Женщина') {
             var pName = this.randomValue(this.firstNameMaleJson);
@@ -129,6 +130,15 @@ const personGenerator = {
             };
             if(pName.endsWith('л')){
                 return pName.replace('л','лович');
+            };
+            if(pName.endsWith('м')){
+                return pName.replace('м','мович');
+            };
+            if(pName.endsWith('р')){
+                return pName.replace('р','рович');
+            };
+            if(pName.endsWith('н')){
+                return pName.replace('н','нович');
             };
         } 
         return pName; 
@@ -168,21 +178,21 @@ const personGenerator = {
         }
         var date1 = date1 || '01-01-1970';
         var date2 = date2 || new Date().toLocaleDateString();
-        date1 = new Date(date1).getTime()
-        date2 = new Date(date2).getTime()
+        date1 = new Date(date1).getTime();
+        date2 = new Date(date2).getTime();
 
         if (date1 > date2) {
-            return new Date(randomValueBetween(date2, date1)).toLocaleDateString()
+            return new Date(randomValueBetween(date2, date1)).toLocaleDateString();
         } else {
-            return new Date(randomValueBetween(date1, date2)).toLocaleDateString()
+            return new Date(randomValueBetween(date1, date2)).toLocaleDateString();
         }
     },
 
     randomWorkPerson: function () {        
         if (this.person.gender == 'Женщина') {
-            var workAll = this.randomValue(this.workWomen)
+            var workAll = this.randomValue(this.workWomen);
         } else {
-            var workAll = this.randomValue(this.workMan)
+            var workAll = this.randomValue(this.workMan);
         }
         return workAll;
        
@@ -204,7 +214,7 @@ const personGenerator = {
             this.person.firstName = this.randomFirstName();// к ОБЬЕКТУ "person" вкладывается свойство "firstname"
             this.person.surName = this.randomSurname();
             this.person.patronyMic = this.randomPatronyMic();
-            this.person.dateBirthday = this.generateRandomDate('01/01/1971', '01/01/2000');
+            this.person.dateBirthday = this.generateRandomDate('01/01/1970', '01/01/2000');
             this.person.work = this.randomWorkPerson();
         };
 
